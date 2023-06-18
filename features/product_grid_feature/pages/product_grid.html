@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./../styles/product_grid_styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./../styles/product_grid_styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
     <title>Grid de productos</title>
-</head>
-<body>
+  </head>
+  <body>
     <header class="main_header">
-        Ru-col Repuestos
-        <a href="#" class="cart_button"><i class="material-icons">shopping_cart</i></a>
+      Ru-col Repuestos
+      <a href="#" class="cart_button"
+        ><i class="material-icons">shopping_cart</i></a
+      >
     </header>
     <div class="main_body">
-        <div style="height: 3rem;"></div>
-        <div class="product_grid" id="product_grid">
-        </div>
-      </div>
+      <div style="height: 3rem"></div>
+      <div class="product_grid" id="product_grid"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./../controllers/product_grid_contoller.js"></script>
-</body>
+  </body>
 </html>

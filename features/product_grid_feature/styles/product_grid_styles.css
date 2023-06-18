@@ -55,7 +55,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center; /* Alineación vertical centrada */
+    align-items: center;
+    /* Alineación vertical centrada */
     width: 100%;
     max-width: 450px;
     min-height: 300px;
@@ -65,14 +66,14 @@ body {
     border: 1px solid black;
     border-radius: 15px;
     box-sizing: border-box;
-  }
-  
-  .product_image {
+}
+
+.product_image {
     width: 100%;
     height: 85%;
     object-fit: cover;
     border-radius: 15px 15px 0 0;
-  }
+}
 
 @media (min-width: 768px) {
     .product_grid {
