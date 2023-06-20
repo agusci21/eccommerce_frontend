@@ -1,7 +1,6 @@
 const productGrid = document.getElementById('product_grid')
 
 window.addEventListener('load', async () => {
-  console.log(productGrid)
   const response = await axios.get('http://localhost:8000/api/products');
   const productList = response.data['products']
 
@@ -25,6 +24,9 @@ window.addEventListener('load', async () => {
     newElement.appendChild(addButton);
 
     productGrid.appendChild(newElement);
+    addButton.addEventListener('click', () => {
+      addProductToCart(product)
+    })
   }
 })
 
@@ -37,3 +39,16 @@ const createElementWith = (elementType, className, textContent) => {
   return newElement
 }
 
+const productsInCartMap = new Map()
+
+const addProductToCart = (product) => {
+  const productTypes = Array.from(productsInCartMap.keys())
+  const productsIds = productTypes.map((e) => e.id)
+
+  if (!productsIds.includes(product.id)) {
+    productsInCartMap.set(product, 1)
+  } else {
+    const previousValue = productsInCartMap.get(product)
+    productsInCartMap.set(product, previousValue + 1)
+  }
+}
