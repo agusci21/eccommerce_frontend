@@ -1,4 +1,5 @@
 const productGrid = document.getElementById('product_grid')
+const productsInCartMap = new Map()
 
 window.addEventListener('load', async () => {
   const response = await axios.get('http://localhost:8000/api/products');
@@ -39,8 +40,6 @@ const createElementWith = (elementType, className, textContent) => {
   return newElement
 }
 
-const productsInCartMap = new Map()
-
 const addProductToCart = (product) => {
   const productTypes = Array.from(productsInCartMap.keys())
   const productsIds = productTypes.map((e) => e.id)
@@ -51,4 +50,14 @@ const addProductToCart = (product) => {
     const previousValue = productsInCartMap.get(product)
     productsInCartMap.set(product, previousValue + 1)
   }
+  getTotalProducts()
+}
+
+const getTotalProducts = () => {
+  const values = Array.from(productsInCartMap.values())
+  let counter = 0;
+  
+  for(let i = 0; i < values.length; i++){
+    counter += values[i]
+  } 
 }
