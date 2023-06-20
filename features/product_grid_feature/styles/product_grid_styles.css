@@ -20,7 +20,12 @@ body {
     position: fixed;
     top: 0;
     left: 0;
+    height: 2rem;
     width: 100%;
+}
+
+.material-icons{
+    margin-right: 5px;
 }
 
 .cart_button {
@@ -30,11 +35,11 @@ body {
     right: 20px;
     transform: translateY(-50%);
     width: 30px;
-    height: 30px;
+    height:30px;
     background-color: #fff;
     border-radius: 50%;
     padding: 10px;
-    margin-right: 2rem;
+    margin-right: 2rem
 }
 
 .cart_button:hover,
@@ -95,6 +100,18 @@ body {
   
   .add_button i {
     color: white;
+  }
+
+  .cart_counter{
+    position: absolute;
+    display: inline-block;
+    color: white;
+    background-color: black;
+    padding: 2px;
+    min-height: 20px;
+    min-width: 20px;
+    top: -2.5px;
+    border-radius: 100%;
   }
 
 @media (min-width: 768px) {
