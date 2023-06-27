@@ -19,7 +19,12 @@
       </a>
     </header>
     <div class="main_body">
-      <input type="text" placeholder="Buscar productos..." style="height: 30px; margin-top: 4rem; border-color: gray;">
+      <div class="search_bar_container">
+        <input type="text" class="search_bar" id="search_bar" placeholder="Buscar productos...">
+        <button class="search_button">
+          <i class="material-icons">search</i>
+        </button>
+      </div>
       <div class="product_grid" id="product_grid"></div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

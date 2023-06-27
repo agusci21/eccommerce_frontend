@@ -1,127 +1,156 @@
 html,
 body {
-    height: 100%;
-    margin: 0;
+  height: 100%;
+  margin: 0;
 }
 
 .main_body {
-    height: 100vh;
-    justify-content: center;
-    background-color: #f2f2f2;
-    padding: 20px;
-    box-sizing: border-box;
+  height: 100vh;
+  justify-content: center;
+  background-color: #f2f2f2;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .main_header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 2rem;
-    width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  width: 100%;
 }
 
-.material-icons{
-    margin-right: 5px;
+.material-icons {
+  margin-right: 5px;
 }
 
 .cart_button {
-    position: absolute;
-    color: #333;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    width: 30px;
-    height:30px;
-    background-color: #fff;
-    border-radius: 50%;
-    padding: 10px;
-    margin-right: 2rem
+  position: absolute;
+  color: #333;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  margin-right: 2rem;
 }
 
 .cart_button:hover,
-
 .cart_button:focus {
-    color: #333;
+  color: #333;
+}
+
+.search_bar_container {
+  display: flex;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.search_bar {
+  flex-grow: 1;
+  height: 30px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.search_button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.search_button:hover {
+  background-color: #555;
 }
 
 .product_grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
-    justify-items: center;
-    align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  justify-items: center;
+  align-items: center;
 }
 
 .product_card {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    max-width: 450px;
-    min-height: 300px;
-    height: 100%;
-    margin-top: 20px;
-    max-height: 500px;
-    border: 1px solid black;
-    border-radius: 15px;
-    box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 450px;
+  min-height: 300px;
+  height: 100%;
+  margin-top: 20px;
+  max-height: 500px;
+  border: 1px solid black;
+  border-radius: 15px;
+  box-sizing: border-box;
 }
 
 .product_image {
-    width: 100%;
-    height: 80%;
-    object-fit: cover;
-    border-radius: 15px 15px 0 0;
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  border-radius: 15px 15px 0 0;
 }
 
-.add_to_card_button{
-    width: 1rem;
-    height: 1rem;
-    background-color: black;
-    color: #fff;
-    border-radius: 50%;
+.add_to_card_button {
+  width: 1rem;
+  height: 1rem;
+  background-color: black;
+  color: #fff;
+  border-radius: 50%;
 }
+
 .add_button {
-    background-color: black;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .add_button i {
-    color: white;
-  }
+  background-color: black;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
 
-  .cart_counter{
-    position: absolute;
-    display: inline-block;
-    color: white;
-    background-color: black;
-    padding: 2px;
-    min-height: 20px;
-    min-width: 20px;
-    top: -2.5px;
-    border-radius: 100%;
-  }
+.add_button i {
+  color: white;
+}
+
+.cart_counter {
+  position: absolute;
+  display: inline-block;
+  color: white;
+  background-color: black;
+  padding: 2px;
+  min-height: 20px;
+  min-width: 20px;
+  top: -2.5px;
+  border-radius: 100%;
+}
 
 @media (min-width: 768px) {
-    .product_grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
+  .product_grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (max-width: 767px) {
-    .product_grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .product_grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
