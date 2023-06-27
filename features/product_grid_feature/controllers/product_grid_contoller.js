@@ -1,6 +1,7 @@
 const productGrid = document.getElementById('product_grid')
 const productsInCartMap = new Map()
 const productCounter = document.getElementById('cart_counter')
+const cartButton = document.getElementById('cart_button')
 
 window.addEventListener('load', async () => {
   const response = await axios.get('http://localhost:8000/api/products');
