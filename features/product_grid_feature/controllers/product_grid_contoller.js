@@ -7,8 +7,19 @@ const searchButton = document.getElementById('search_button')
 
 window.addEventListener('load', async () => getProducts())
 
-searchButton.addEventListener('click', async () => {
+searchBar.addEventListener('input', async () => {
+  if (searchBar.value.trim().length === 0) {
+    searchButton.innerHTML = '<i class="material-icons">search</i>'
+  } else {
+    searchButton.innerHTML = '<i class="material-icons">delete</i>'
+  }
   await getProducts(searchBar.value);
+});
+
+searchButton.addEventListener('click', () => {
+  searchButton.innerHTML = '<i class="material-icons">search</i>'
+  searchBar.value = ''
+  getProducts();
 })
 
 const createElementWith = (elementType, className, textContent) => {
@@ -36,20 +47,20 @@ const addProductToCart = (product) => {
 const getTotalProducts = () => {
   const values = Array.from(productsInCartMap.values())
   let counter = 0;
-  
-  for(let i = 0; i < values.length; i++){
+
+  for (let i = 0; i < values.length; i++) {
     counter += values[i]
-  } 
+  }
   return counter
 }
 
 const getProducts = async (searchField) => {
-  productGrid.innerHTML = '';
   let url = 'http://localhost:8000/api/products'
-  if(searchField){
+  if (searchField) {
     url += `?filterQuery=${searchField}`
   }
   const response = await axios.get(url);
+  productGrid.innerHTML = '';
   const productList = response.data['products']
 
 
