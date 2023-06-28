@@ -64,26 +64,37 @@ const getProducts = async (searchField) => {
 
 
   for (const product of productList) {
-    const newElement = createElementWith('div', 'product_card')
 
-    const imageElement = createElementWith('img', 'product_image')
-    imageElement.src = product["image_url"] ?? 'https://picsum.photos/200';
-    const textElement = createElementWith('h2', null, product['name'])
-    const addButton = document.createElement('button', 'add_button');
-    addButton.style.borderRadius = '100%'
-    addButton.style.backgroundColor = 'black'
-    const addIcon = createElementWith('i', 'material-icons', 'add',)
-    addButton.style.color = 'white'
+    const newElement = createElementWith('div', 'product_card');
+
+const imageElement = createElementWith('img', 'product_image');
+imageElement.src = product["image_url"] ?? 'https://picsum.photos/200';
+const textElement = createElementWith('h2', null, product['name']);
+
+const addButton = document.createElement('button');
+addButton.className = 'add_button';
+addButton.style.backgroundColor = '#78222B';
+addButton.style.color = 'white';
+addButton.style.borderRadius = '10px';
+addButton.style.border = 'none';
+addButton.style.padding = '8px 24px';
+addButton.style.width = '8rem';
+addButton.style.display = 'flex';
+addButton.style.justifyContent = 'center';
+addButton.style.alignItems = 'center';
+addButton.textContent = 'Agregar';
+
+newElement.appendChild(imageElement);
+newElement.appendChild(textElement);
+newElement.appendChild(addButton);
+
+productGrid.appendChild(newElement);
+
+addButton.addEventListener('click', () => {
+  addProductToCart(product);
+});
 
 
-    addButton.appendChild(addIcon);
-    newElement.appendChild(imageElement);
-    newElement.appendChild(textElement);
-    newElement.appendChild(addButton);
 
-    productGrid.appendChild(newElement);
-    addButton.addEventListener('click', () => {
-      addProductToCart(product)
-    })
   }
 } 
