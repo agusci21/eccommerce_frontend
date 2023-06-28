@@ -1,5 +1,5 @@
 const productGrid = document.getElementById('product_grid')
-const productsInCartMap = new Map()
+const productsInCartList = []
 const productCounter = document.getElementById('cart_counter')
 const cartButton = document.getElementById('cart_button')
 const searchBar = document.getElementById('search_bar')
@@ -32,24 +32,23 @@ const createElementWith = (elementType, className, textContent) => {
 }
 
 const addProductToCart = (product) => {
-  const productTypes = Array.from(productsInCartMap.keys())
-  const productsIds = productTypes.map((e) => e.id)
+  const productsIds = productsInCartList.map(e => e.id)
 
   if (!productsIds.includes(product.id)) {
-    productsInCartMap.set(product, 1)
+    const productEntity = Product.fromJson(product)
+    productEntity.addOneProductToCard()
+    productsInCartList.push(productEntity)
   } else {
-    const previousValue = productsInCartMap.get(product)
-    productsInCartMap.set(product, previousValue + 1)
+    productsInCartList.filter(e => e.id === product.id)[0].addOneProductToCard()
   }
+  console.table(productsInCartList)
   productCounter.textContent = getTotalProducts()
 }
 
 const getTotalProducts = () => {
-  const values = Array.from(productsInCartMap.values())
-  let counter = 0;
-
-  for (let i = 0; i < values.length; i++) {
-    counter += values[i]
+  let counter = 0
+  for (const product of productsInCartList) {
+    counter += product.itemsInCart
   }
   return counter
 }
