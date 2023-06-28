@@ -41,7 +41,6 @@ const addProductToCart = (product) => {
   } else {
     productsInCartList.filter(e => e.id === product.id)[0].addOneProductToCard()
   }
-  console.table(productsInCartList)
   productCounter.textContent = getTotalProducts()
 }
 
