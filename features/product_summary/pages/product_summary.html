@@ -5,11 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito</title>
     <link rel="stylesheet" href="./../styles/product_summary.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
     <header class="main_header">
-        Ru-col Repuestos
+        <a href="../../../features/product_grid_feature/pages/product_grid.html">
+          <button class="back_button" id="back_button">
+            <i class="material-icons">arrow_back</i>
+          </button>
         </a>
+        <div class="rucol_logo_container">
+          <img class="rucol_logo" src="../../../assets/rucol_logo.png" alt="Rucol Logo" />
+        </div>
       </header>
+      <script src="../../../core/models/product_model.js"></script>
+      <script src="../controllers/product_summary_controller.js"></script>
 </body>
 </html>

@@ -1,6 +1,5 @@
-
 .main_header {
-    background-color: #333;
+    background-color: #3A448C;
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -9,4 +8,36 @@
     left: 0;
     height: 2rem;
     width: 100%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+}
+
+.back_button {
+    background-color: #78222B;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.back_button i {
+    color: #fff;
+}
+
+.rucol_logo_container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rucol_logo {
+    width: 12.5rem;
+    height: auto;
 }
