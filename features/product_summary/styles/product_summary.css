@@ -1,5 +1,9 @@
+
+h3,p{
+    font-size: 1.2rem;
+}
 .main_header {
-    background-color: #3A448C;
+    background-color: #3a448c;
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -11,10 +15,10 @@
     z-index: 2;
     display: flex;
     align-items: center;
-}
-
-.back_button {
-    background-color: #78222B;
+  }
+  
+  .back_button {
+    background-color: #78222b;
     border-radius: 50%;
     width: 2rem;
     height: 2rem;
@@ -24,20 +28,70 @@
     margin-right: 10px;
     border: none;
     cursor: pointer;
-}
-
-.back_button i {
+  }
+  
+  .back_button i {
     color: #fff;
-}
-
-.rucol_logo_container {
+  }
+  
+  .rucol_logo_container {
     flex-grow: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.rucol_logo {
+  }
+  
+  .rucol_logo {
     width: 12.5rem;
     height: auto;
-}
+  }
+  
+  .row_indentifiers {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.2rem;
+    margin-top: 4rem;
+  }
+  
+  .row_indentifiers h3 {
+    color: #333;
+    font-weight: bold;
+    width: 25%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  
+  .data_row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.2rem;
+    margin-top: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 20px;
+  }
+  
+  .data_item {
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 5px;
+  }
+
+  @media (max-width: 768px){
+    h3,p{
+        font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .unit_price,
+    .unit_price_single {
+      display: none;
+    }
+  }
+  

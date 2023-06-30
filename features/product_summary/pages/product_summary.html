@@ -1,24 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carrito</title>
-    <link rel="stylesheet" href="./../styles/product_summary.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-</head>
-<body>
+    <link rel="stylesheet" href="./../styles/product_summary.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+  <body>
     <header class="main_header">
-        <a href="../../../features/product_grid_feature/pages/product_grid.html">
-          <button class="back_button" id="back_button">
-            <i class="material-icons">arrow_back</i>
-          </button>
-        </a>
-        <div class="rucol_logo_container">
-          <img class="rucol_logo" src="../../../assets/rucol_logo.png" alt="Rucol Logo" />
-        </div>
-      </header>
-      <script src="../../../core/models/product_model.js"></script>
-      <script src="../controllers/product_summary_controller.js"></script>
-</body>
+      <a href="../../../features/product_grid_feature/pages/product_grid.html">
+        <button class="back_button" id="back_button">
+          <i class="material-icons">arrow_back</i>
+        </button>
+      </a>
+      <div class="rucol_logo_container">
+        <img
+          class="rucol_logo"
+          src="../../../assets/rucol_logo.png"
+          alt="Rucol Logo"
+        />
+      </div>
+    </header>
+    <div class="row_indentifiers">
+      <h3>Cantidad</h3>
+      <h3>Nombre</h3>
+      <h3 class="unit_price">Precio unitario</h3>
+      <h3>Precio Total</h3>
+    </div>
+      <div class="data_row">
+        <p class="data_item amount_single">10</p>
+        <p class="data_item product_name_single" >Producto 1</p>
+        <p class="data_item unit_price_single" >$200</p>
+        <p class="data_item total_price_single">$2000</p>
+      </div>
+    <script src="../../../core/models/product_model.js"></script>
+    <script src="../controllers/product_summary_controller.js"></script>
+  </body>
 </html>
