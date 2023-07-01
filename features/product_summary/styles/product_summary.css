@@ -1,97 +1,130 @@
-
-h3,p{
-    font-size: 1.2rem;
+h3,
+p {
+  font-size: 1.2rem;
 }
 .main_header {
-    background-color: #3a448c;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 2rem;
-    width: 100%;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-  }
-  
-  .back_button {
-    background-color: #78222b;
-    border-radius: 50%;
-    width: 2rem;
-    height: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .back_button i {
-    color: #fff;
-  }
-  
-  .rucol_logo_container {
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .rucol_logo {
-    width: 12.5rem;
-    height: auto;
-  }
-  
-  .row_indentifiers {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.2rem;
-    margin-top: 4rem;
-  }
-  
-  .row_indentifiers h3 {
-    color: #333;
-    font-weight: bold;
-    width: 25%;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  
-  .data_row {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.2rem;
-    margin-top: 0.5rem;
-    border: 1px solid #333;
-    border-radius: 20px;
-  }
-  
-  .data_item {
-    flex: 1;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 5px;
-  }
+  background-color: #3a448c;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+}
 
-  @media (max-width: 768px){
-    h3,p{
-        font-size: 1rem;
-    }
-  }
+.back_button {
+  background-color: #78222b;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  border: none;
+  cursor: pointer;
+}
 
-  @media (max-width: 480px) {
-    .unit_price,
-    .unit_price_single {
-      display: none;
-    }
+.back_button i {
+  color: #fff;
+}
+
+.rucol_logo_container {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rucol_logo {
+  width: 12.5rem;
+  height: auto;
+}
+
+.row_indentifiers {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.2rem;
+  margin-top: 4rem;
+}
+
+.row_indentifiers h3 {
+  color: #333;
+  font-weight: bold;
+  width: 25%;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.data_row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.2rem;
+  margin-top: 0.5rem;
+  border: 1px solid #333;
+  border-radius: 20px;
+}
+
+.data_item {
+  flex: 1;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 5px;
+}
+
+.amount_modifier {
+  display: flex;
+  flex-direction: row;
+}
+
+.minus_button,
+.plus_button {
+  text-align: center;
+  text-overflow: ellipsis;
+  padding: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.minus_button {
+  background-color: #78222b;
+  margin-left: 2rem;
+}
+.plus_button {
+  background-color: #3a448c;
+  margin-right: 2rem;
+}
+
+@media (max-width: 768px) {.minus_button,
+  .plus_button {
+  margin-left: 0;
+  margin-right: 0;
+}
+  h3,
+  p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .unit_price,
+  .unit_price_single {
+    display: none;
   }
   
+
+}

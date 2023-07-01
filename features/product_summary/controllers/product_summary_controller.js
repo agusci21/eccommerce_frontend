@@ -23,12 +23,9 @@ const getProductsFromSessionStorage = () => {
   }
   return [];
 }
-const createProductElement = (product) => {
-  const productElement = document.createElement('div', 'data_row');
-  return productElement;
-};
+
 const renderProducts = () => {
-  productContainer.innerHTML = '';
+  /*productContainer.innerHTML = '';
   for (const product of productsInCartList) {
     const dataRow = createElementWith('div', 'data_row');
 
@@ -43,34 +40,6 @@ const renderProducts = () => {
     dataRow.appendChild(totalPriceElement);
 
     productContainer.appendChild(dataRow);
-  }
+  }*/
 };
-
-const getFakeProducts = () => [
-  new Product(
-    '1',
-    'Horquilla',
-    'Horquillas de renault 12',
-    20,
-    1300,
-    1,
-  ),
-  new Product(
-    '2',
-    'Arandelas',
-    'Arandelas metalicas',
-    300,
-    200,
-    20,
-  ),
-  new Product(
-    '3',
-    'Bugias',
-    '987 1x',
-    12,
-    50,
-    2,
-  ),
-
-]
 
