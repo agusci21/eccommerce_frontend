@@ -25,4 +25,11 @@ class Product {
             this.itemsInCart++
         }
     }
+    removeOneProductToCard(){
+        if(this.itemsInCart === null || this.itemsInCart === undefined){
+            this.itemsInCart = 0;
+        }else{
+            this.itemsInCart--
+        }
+    }
 }

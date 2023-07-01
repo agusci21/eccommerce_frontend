@@ -25,21 +25,67 @@ const getProductsFromSessionStorage = () => {
 }
 
 const renderProducts = () => {
-  /*productContainer.innerHTML = '';
+  productContainer.innerHTML = '';
   for (const product of productsInCartList) {
+
+    if (product.itemsInCart == 0) {
+      continue;
+    }
+
     const dataRow = createElementWith('div', 'data_row');
 
-    const amountElement = createElementWith('p', 'data_item amount_single', product.itemsInCart.toString());
-    const productNameElement = createElementWith('p', 'data_item product_name_single', product.name);
-    const unitPriceElement = createElementWith('p', 'data_item unit_price_single', `$${product.price}`);
-    const totalPriceElement = createElementWith('p', 'data_item total_price_single', `$${product.price * product.itemsInCart}`);
+    const amountModifier = createElementWith('div', 'data_item amount_modifier');
+    const amountElement = createElementWith('p', 'data_item amount_single');
+    amountElement.textContent = product.itemsInCart.toString();
 
-    dataRow.appendChild(amountElement);
+    const minusButton = createElementWith('p', 'minus_button');
+    minusButton.textContent = '-';
+    const plusButton = createElementWith('p', 'plus_button');
+    plusButton.textContent = '+';
+
+    minusButton.addEventListener('click', () => {
+
+      product.removeOneProductToCard()
+      amountElement.textContent = product.itemsInCart.toString();
+      saveProductsToSessionStorage()
+
+      if (product.itemsInCart == 0) {
+        dataRow.style.display = 'none'
+      }
+
+    })
+    plusButton.addEventListener('click', () => {
+
+      product.addOneProductToCard()
+      amountElement.textContent = product.itemsInCart.toString();
+      saveProductsToSessionStorage()
+
+    })
+    amountModifier.appendChild(minusButton);
+
+    amountModifier.appendChild(amountElement);
+
+    amountModifier.appendChild(plusButton);
+
+
+    dataRow.appendChild(amountModifier);
+
+    const productNameElement = createElementWith('p', 'data_item product_name_single');
+    productNameElement.textContent = product.name;
     dataRow.appendChild(productNameElement);
+
+    const unitPriceElement = createElementWith('p', 'data_item unit_price_single');
+    unitPriceElement.textContent = `$${product.price}`;
     dataRow.appendChild(unitPriceElement);
+
+    const totalPriceElement = createElementWith('p', 'data_item total_price_single');
+    totalPriceElement.textContent = `$${product.price * product.itemsInCart}`;
     dataRow.appendChild(totalPriceElement);
 
     productContainer.appendChild(dataRow);
-  }*/
+  }
 };
 
+const saveProductsToSessionStorage = () => {
+  sessionStorage.setItem('products_in_cart', JSON.stringify(productsInCartList));
+};
