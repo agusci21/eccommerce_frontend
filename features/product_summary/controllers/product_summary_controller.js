@@ -1,11 +1,25 @@
 
 const productContainer = document.getElementById('product_container');
+const orderButton = document.getElementById('order_button')
 let productsInCartList = []
 
 window.addEventListener('load', async () => {
   productsInCartList = getProductsFromSessionStorage();
   renderProducts();
 });
+
+orderButton.addEventListener('click', () => {
+  productsInCartList = getProductsFromSessionStorage();
+  let orderString = 'Hola, requiero estos productos:\n'
+  for(const product of productsInCartList){
+    if(product.itemsInCart == 0){
+      continue
+    }
+    orderString += product.toOrder()
+  }
+  orderString += 'Por un total de: $'+ calculateTotalPrice()
+  openWpp('2612717693', orderString)
+})
 
 const createElementWith = (elementType, className, textContent) => {
   const newElement = document.createElement(elementType);
@@ -89,3 +103,16 @@ const renderProducts = () => {
 const saveProductsToSessionStorage = () => {
   sessionStorage.setItem('products_in_cart', JSON.stringify(productsInCartList));
 };
+
+const openWpp = (phoneNumber, message) => {
+  const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+  window.open(url);
+}
+
+const calculateTotalPrice = () => {
+  let totalPrice = 0;
+  for(const product of productsInCartList){
+    totalPrice += (product.itemsInCart * product.price)
+  }
+  return totalPrice
+}

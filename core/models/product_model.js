@@ -32,4 +32,8 @@ class Product {
             this.itemsInCart--
         }
     }
+
+    toOrder(){
+        return `${this.itemsInCart} X ${this.name} = $${this.itemsInCart * this.price}\n`
+    }
 }

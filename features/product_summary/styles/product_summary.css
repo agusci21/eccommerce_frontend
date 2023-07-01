@@ -35,15 +35,20 @@ p {
 }
 
 .rucol_logo_container {
-  flex-grow: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
 }
 
 .rucol_logo {
   width: 12.5rem;
   height: auto;
+  margin-right: 10px;
 }
 
 .row_indentifiers {
@@ -107,6 +112,26 @@ p {
 .plus_button {
   background-color: #3a448c;
   margin-right: 2rem;
+}
+
+.order_button {
+  background-color: #78222b;
+  color: white;
+  border-radius: 20px;
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-width: 0;
+  transition: transform 0.2s;
+}
+
+.order_button:hover {
+  background-color: #641d23;
+  transform: translateX(-50%) scale(1.05);
 }
 
 @media (max-width: 768px) {.minus_button,
