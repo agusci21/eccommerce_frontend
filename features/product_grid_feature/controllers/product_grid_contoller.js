@@ -3,6 +3,8 @@ const productCounter = document.getElementById('cart_counter');
 const cartButton = document.getElementById('cart_button');
 const searchBar = document.getElementById('search_bar');
 const searchButton = document.getElementById('search_button');
+const filtersButton = document.getElementById('filters_button');
+const dropdownContent = document.getElementById('dropdown_content');
 let productsInCartList = []
 
 window.addEventListener('load', async () => {
@@ -18,6 +20,10 @@ searchBar.addEventListener('input', async () => {
     searchButton.innerHTML = '<i class="material-icons">delete</i>';
   }
   await getProducts(searchBar.value);
+});
+
+filtersButton.addEventListener('click', function() {
+  dropdownContent.classList.add('show');
 });
 
 searchButton.addEventListener('click', () => {
