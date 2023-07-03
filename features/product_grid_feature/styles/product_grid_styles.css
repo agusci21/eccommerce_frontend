@@ -215,11 +215,3 @@
   border: 1px solid #ccc;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-
-.dropdown-content.show {
-  display: block;
-}
-
-.dropdown-content a {
-  display: block;
-}

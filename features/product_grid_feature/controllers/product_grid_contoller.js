@@ -15,6 +15,11 @@ window.addEventListener('load', async () => {
   productCounter.textContent = getTotalProducts()
 });
 
+dropdownContent.addEventListener('mouseleave', () => {
+  dropdownContent.style.display = 'none';
+})
+
+
 searchBar.addEventListener('input', async () => {
   if (searchBar.value.trim().length === 0) {
     searchButton.innerHTML = '<i class="material-icons">search</i>';
@@ -25,7 +30,7 @@ searchBar.addEventListener('input', async () => {
 });
 
 filtersButton.addEventListener('click', function () {
-  dropdownContent.classList.add('show');
+  dropdownContent.style.display = 'block'
 });
 
 searchButton.addEventListener('click', () => {
@@ -73,14 +78,13 @@ const getProducts = async ({ searchField, category } = {}) => {
     if (searchField) {
       url += `filterQuery=${searchField}`;
       if (category) {
-        url += `&category=${category}`;
+        url += `&categoryId=${category}`;
       }
     } else if (category) {
-      url += `category=${category}`;
+      url += `categoryId=${category}`;
     }
   }
-  
-  console.log(url)
+
   const response = await axios.get(url);
   productGrid.innerHTML = '';
   const productList = response.data['products'];
@@ -142,7 +146,6 @@ const getCategories = async () => {
     optionElement.addEventListener('click', () => {
       getProducts({ searchField: searchBar.value, category: categoryEntity.id, })
     })
-
     dropdownContent.appendChild(optionElement);
   }
 
