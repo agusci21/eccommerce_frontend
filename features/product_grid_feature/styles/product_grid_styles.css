@@ -190,6 +190,15 @@
   border-radius: 100%;
 }
 
+.option_title{
+  font-size: large;
+  font-weight: 600;
+}
+.option{
+  font-size: large;
+  cursor: pointer;
+}
+
 .dropdown {
   position: relative;
   display: inline-block;

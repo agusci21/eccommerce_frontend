@@ -5,10 +5,12 @@ const searchBar = document.getElementById('search_bar');
 const searchButton = document.getElementById('search_button');
 const filtersButton = document.getElementById('filters_button');
 const dropdownContent = document.getElementById('dropdown_content');
+const categories = []
 let productsInCartList = []
 
 window.addEventListener('load', async () => {
   getProducts();
+  getCategories()
   productsInCartList = getProductsFromSessionStorage();
   productCounter.textContent = getTotalProducts()
 });
@@ -19,10 +21,10 @@ searchBar.addEventListener('input', async () => {
   } else {
     searchButton.innerHTML = '<i class="material-icons">delete</i>';
   }
-  await getProducts(searchBar.value);
+  await getProducts({ searchField: searchBar.value });
 });
 
-filtersButton.addEventListener('click', function() {
+filtersButton.addEventListener('click', function () {
   dropdownContent.classList.add('show');
 });
 
@@ -64,11 +66,21 @@ const getTotalProducts = () => {
   return counter;
 };
 
-const getProducts = async (searchField) => {
+const getProducts = async ({ searchField, category } = {}) => {
   let url = 'http://localhost:8000/api/products';
-  if (searchField) {
-    url += `?filterQuery=${searchField}`;
+  if (searchField || category) {
+    url += '?';
+    if (searchField) {
+      url += `filterQuery=${searchField}`;
+      if (category) {
+        url += `&category=${category}`;
+      }
+    } else if (category) {
+      url += `category=${category}`;
+    }
   }
+  
+  console.log(url)
   const response = await axios.get(url);
   productGrid.innerHTML = '';
   const productList = response.data['products'];
@@ -114,3 +126,25 @@ const getProductsFromSessionStorage = () => {
 const saveProductsToSessionStorage = (productsList) => {
   sessionStorage.setItem('products_in_cart', JSON.stringify(productsList));
 };
+
+const getCategories = async () => {
+  dropdownContent.innerHTML = '<p class="option_title">Filtrar por categoria</p>'
+  let url = 'http://localhost:8000/api/categories';
+  const response = await axios.get(url)
+  const rawCategories = response.data.categories
+  for (const rawCategory of rawCategories) {
+    const categoryEntity = Category.fromJson(rawCategory)
+    categories.push(categoryEntity)
+    const optionElement = document.createElement('p');
+    optionElement.className = 'option'
+    optionElement.textContent = categoryEntity.name
+
+    optionElement.addEventListener('click', () => {
+      getProducts({ searchField: searchBar.value, category: categoryEntity.id, })
+    })
+
+    dropdownContent.appendChild(optionElement);
+  }
+
+
+}
