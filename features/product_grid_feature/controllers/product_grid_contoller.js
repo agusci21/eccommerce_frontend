@@ -7,6 +7,7 @@ const filtersButton = document.getElementById('filters_button');
 const dropdownContent = document.getElementById('dropdown_content');
 const categories = []
 let productsInCartList = []
+let selectedCategory = ''
 
 window.addEventListener('load', async () => {
   getProducts();
@@ -26,7 +27,7 @@ searchBar.addEventListener('input', async () => {
   } else {
     searchButton.innerHTML = '<i class="material-icons">delete</i>';
   }
-  await getProducts({ searchField: searchBar.value });
+  await getProducts({ searchField: searchBar.value, category: selectedCategory });
 });
 
 filtersButton.addEventListener('click', function () {
@@ -36,6 +37,7 @@ filtersButton.addEventListener('click', function () {
 searchButton.addEventListener('click', () => {
   searchButton.innerHTML = '<i class="material-icons">search</i>';
   searchBar.value = '';
+  selectedCategory = ''
   getProducts();
 });
 
@@ -84,6 +86,8 @@ const getProducts = async ({ searchField, category } = {}) => {
       url += `categoryId=${category}`;
     }
   }
+
+  console.log(url)
 
   const response = await axios.get(url);
   productGrid.innerHTML = '';
@@ -144,7 +148,9 @@ const getCategories = async () => {
     optionElement.textContent = categoryEntity.name
 
     optionElement.addEventListener('click', () => {
+      selectedCategory = categoryEntity.id
       getProducts({ searchField: searchBar.value, category: categoryEntity.id, })
+      searchButton.innerHTML = '<i class="material-icons">delete</i>';
     })
     dropdownContent.appendChild(optionElement);
   }

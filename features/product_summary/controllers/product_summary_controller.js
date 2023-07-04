@@ -6,7 +6,15 @@ let productsInCartList = []
 window.addEventListener('load', async () => {
   productsInCartList = getProductsFromSessionStorage();
   renderProducts();
+  disableBuyButtonIfNecesary()
 });
+
+const disableBuyButtonIfNecesary = () => {
+  if(productsInCartList.length == 0){
+    orderButton.style.backgroundColor = 'grey'
+    orderButton.style.pointerEvents = 'none'
+  }
+}
 
 orderButton.addEventListener('click', () => {
   productsInCartList = getProductsFromSessionStorage();
@@ -45,7 +53,12 @@ const renderProducts = () => {
     if (product.itemsInCart == 0) {
       continue;
     }
-
+    const unitPriceElement = createElementWith('p', 'data_item unit_price_single');
+    unitPriceElement.textContent = `$${product.price}`;
+    const totalPriceElement = createElementWith('p', 'data_item total_price_single');
+    totalPriceElement.textContent = `$${product.price * product.itemsInCart}`;
+    const productNameElement = createElementWith('p', 'data_item product_name_single');
+    productNameElement.textContent = product.name;
     const dataRow = createElementWith('div', 'data_row');
 
     const amountModifier = createElementWith('div', 'data_item amount_modifier');
@@ -61,19 +74,21 @@ const renderProducts = () => {
 
       product.removeOneProductToCard()
       amountElement.textContent = product.itemsInCart.toString();
+      productsInCartList = productsInCartList.filter(e => e.itemsInCart > 0)
       saveProductsToSessionStorage()
-
+      totalPriceElement.textContent = `$${product.price * product.itemsInCart}`;
       if (product.itemsInCart == 0) {
         dataRow.style.display = 'none'
       }
-
+      disableBuyButtonIfNecesary()
     })
+
     plusButton.addEventListener('click', () => {
 
       product.addOneProductToCard()
       amountElement.textContent = product.itemsInCart.toString();
       saveProductsToSessionStorage()
-
+      totalPriceElement.textContent = `$${product.price * product.itemsInCart}`;
     })
     amountModifier.appendChild(minusButton);
 
@@ -84,16 +99,13 @@ const renderProducts = () => {
 
     dataRow.appendChild(amountModifier);
 
-    const productNameElement = createElementWith('p', 'data_item product_name_single');
-    productNameElement.textContent = product.name;
+    
     dataRow.appendChild(productNameElement);
 
-    const unitPriceElement = createElementWith('p', 'data_item unit_price_single');
-    unitPriceElement.textContent = `$${product.price}`;
+    
     dataRow.appendChild(unitPriceElement);
 
-    const totalPriceElement = createElementWith('p', 'data_item total_price_single');
-    totalPriceElement.textContent = `$${product.price * product.itemsInCart}`;
+    
     dataRow.appendChild(totalPriceElement);
 
     productContainer.appendChild(dataRow);
