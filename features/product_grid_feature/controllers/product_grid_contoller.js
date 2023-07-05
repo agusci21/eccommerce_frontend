@@ -87,16 +87,16 @@ const getProducts = async ({ searchField, category } = {}) => {
     }
   }
 
-  console.log(url)
 
   const response = await axios.get(url);
   productGrid.innerHTML = '';
   const productList = response.data['products'];
-  console.table(productList)
   for (const product of productList) {
     const newElement = createElementWith('div', 'product_card');
     const imageElement = createElementWith('img', 'product_image');
     imageElement.src = product["imageUrl"] ?? 'https://picsum.photos/200';
+    imageElement.style.width = '100%';
+    imageElement.style.height = '200px'; 
     const textElement = createElementWith('h2', null, product['name']);
 
     const addButton = document.createElement('button');
